@@ -16,7 +16,16 @@
 		WHERE ID = #{id}
 		AND PW = #{pw}
 	</select>
-	
+	<!-- selectTodoList 할 일 목록 전체 보는 mapper -->
+	<!-- 한 명이아닌 여러명의 사용자가 TODO 테이블에 작성한 수많은 할 일 있음
+	     todoMemberNo 특정멤버 번호를 연동해서 특정멤버의 할 일만 보여주겠다.
+	     
+	 -->
+	<select id="selectTodoList" resultType="Todo">
+	SELECT * FROM TODO
+	WHERE TODO_MEMBER_NO = #{todoMemberNo}
+	ORDER BY 1
+	</select>
 	<!-- DB에 있는 TODO 테이블에서 해당 번호 할 일이 완료 됐는지 isDone으로 완료 여부 수정  -->
 	<update id="update">
 		UPDATE TODO 
@@ -63,3 +72,8 @@
 		VALUES(${todoNo}, #{title}, default, ${todoMemberNo})
 	</insert>
 </mapper>
+
+
+
+
+
