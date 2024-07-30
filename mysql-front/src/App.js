@@ -93,7 +93,8 @@ function App() {
       ``
       http://localhost:3000/users?id=3
      */
-    await axios.delete(`/users?id=${id}`);
+    await axios.delete(`/users/${id}`);
+    //await axios.delete(`/users`,{params: {id} });
     /**
      * 자바 컨트롤러에서 @DeleteMapping("/{id}") 매개변수 = 파라미터에 (@PathVariable int id) 작성
      * 리액트  axios에서 id=${id} 이다.  
@@ -125,7 +126,7 @@ function App() {
 
 /*********  유저 수정 버튼  *********/
 const updateUser = async (user) => {
-  await axios.put('/users', user); //putmapping /users로 주소값이 설정된 수정하는 주소 연결
+  await axios.post('/users', user); //putmapping /users로 주소값이 설정된 수정하는 주소 연결
   setUsers(users.map(u => (u.id === user.id ? user : u)));
   // 수정한 유저의 id값이 일치하는지 확인하고, id값이 일치하지 않다면 기존에 있던 유저 정보로 수정하지 않고 전달
 }
