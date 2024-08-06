@@ -2,10 +2,15 @@ package com.kh.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import com.kh.dto.User;
+import com.kh.service.UserService;
 /*
  * 24-07-29 리액트와 스프링 프레임워크 연동을 위한 컨트롤러
  * OAuthController와 api url 주소가 동일해서 나타나는 충돌을 막기위해
@@ -67,4 +72,5 @@ public class NaverLoginController {
 		String 응답결과 = restTemplate.getForObject(api_url, String.class);
 		return 응답결과;
 	}
+
 }

@@ -12,9 +12,9 @@ import com.kh.dto.User;
 public interface UserMapper {
   List<User> findAll();
   
-  void insertUser(User user);
+  void signUpUser(User user);
   
-  void deleteUser(int id);
+  //void deleteUser(int id);
   
-  void updateUser(User user);
+  //void updateUser(User user);
 }

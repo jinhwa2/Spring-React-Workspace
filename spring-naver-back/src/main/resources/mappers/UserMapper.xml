@@ -12,19 +12,20 @@
  keyProperty="id" 자동으로 증가하는 기준이 되는 키 설정은 어떤 컬럼을 바라볼 것인가?
 
  -->
-   <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
-   Insert into user(name,email)
-   values(#{name}, #{email})
-   </insert>
-   
-   <delete id="deleteUser" parameterType="User">
+ <insert id="signUpUser" parameterType="User">
+		insert into naverusers (id, email, name, password, profile_image)
+		values (#{id}, #{email}, #{name}, #{password}, #{profileImage})
+	</insert>
+	<!--  <delete id="deleteUser" parameterType="User">
     DELETE FROM USER WHERE ID = #{id}
    </delete>
    
-   <!-- 수정하기 -->
+ 
    <update id="updateUser" parameterType="User">
       UPDATE user
       SET name = #{name}, email = #{email}
       WHERE id = #{id}
    </update>
+  
+   -->
 </mapper>

@@ -10,6 +10,13 @@ function UserInfo() {
   const [userInfo, setUserInfo] = useState(null);
   const location = useLocation();
   const [loading, setLoading] = useState(true);
+  
+  const [userId, setUserId] = useState('');
+  const [userPw, setUserPw] = useState('');
+  
+  const 회원등록 = () => {
+    signUpUser();
+  }
 
   //어떤 클릭이 없어도 UserInfo 페이지 들어오면 자동으로 실행되는 효과
   useEffect(() => {
@@ -49,6 +56,27 @@ function UserInfo() {
   
   },[location.search]); //location.search로 검색된 키-값중 access_token = abc123
   //access_token 값을 가져오면 useEffect를 사용하겠다.
+   const signUpUser = () => {
+     const signUpUserData = {
+      id : userId,
+     email : userInfo.response.email,
+      name : userInfo.response.name,
+      password : userPw,
+      profileImage : userInfo.response.profile_image
+     }
+     axios.post("/signUpUser",signUpUserData)
+     .then(response => {
+       //성공적으로 회원가입이 완료된 경우
+       alert("회원가입이 성공적으로 완료 되었습니다.");
+       setUserId(''); //사용자 ID 상태 초기화
+       setUserPw(''); //사용자 PW 상태 초기화
+     })
+     .catch(err => {
+       //서버로부터 오류 메시지를 받은 경우
+       alert("중복된 회원입니다.");
+     });
+    }
+
   if(loading) {
     return <div>데이터 정보 가져오는 중...</div>
   }
@@ -77,7 +105,15 @@ function UserInfo() {
 
   <div>
     <h2>회원가입에 필요한 아이디 및 비밀번호 작성하기</h2>
-    <input type="text" />
+     <label>ID
+     <input type="text" value={userId}
+      onChange={e => setUserId(e.target.value)} />
+      </label>
+     <label>PW
+      <input type="password" value={userPw}
+       onChange={e => setUserPw(e.target.value)} />
+     </label><br/>
+     <button onClick={회원등록}>등록버튼</button>
   </div>
   </>
   

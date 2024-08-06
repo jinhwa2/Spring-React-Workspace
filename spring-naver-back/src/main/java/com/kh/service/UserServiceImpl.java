@@ -20,26 +20,26 @@ public class UserServiceImpl implements UserService{
 	 @Autowired
 	 UserMapper userMapper;
 	 
-	 @Override
-	 public List<User> findAll() {
+	 //@Override
+	// public List<User> findAll() {
 		 //관리자로 로그인했을 때 유저보이게하기
-		 return userMapper.findAll();
-	 }
+		 //return userMapper.findAll();
+	// }
 	 
 	 @Override
-	 public void insertUser(User user) {
-		 userMapper.insertUser(user);
+	 public void signUpUser(User user) {
+		 userMapper.signUpUser(user);
 	 }
 
-	@Override
-	public void deleteUser(int id) {
-		userMapper.deleteUser(id);
+	//@Override
+	//public void deleteUser(int id) {
+		//userMapper.deleteUser(id);
 		
-	}
-	@Override
-	public void updateUser(User user) {
-		userMapper.updateUser(user);
-	}
+	//}
+	//@Override
+	//public void updateUser(User user) {
+		//userMapper.updateUser(user);
+	//}
 	
 		
 	 

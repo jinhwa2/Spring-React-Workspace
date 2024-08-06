@@ -1,5 +1,6 @@
 package com.kh.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -7,6 +8,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +19,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kh.dto.User;
+import com.kh.service.UserService;
 /*
  * 24-07-31 리액트와 스프링 프레임워크 연동을 위한 컨트롤러
  * 리액트와 네이버로그인과 최종 연동되는 컨트롤러
@@ -23,6 +28,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RestController
 
 public class NaverRegistController {
+	
+   @Autowired
+   private UserService userService;
 	
    @Value("${naver.client-id}")
    private String clientId;
@@ -77,11 +85,10 @@ public class NaverRegistController {
 		e.printStackTrace();
 		return null;
 	
-	} 
+	 } 
 	  
 	   
    }
-   
    
    
    
@@ -112,5 +119,12 @@ public class NaverRegistController {
        }
        return res;
    }
+  
+  @PostMapping("/signUpUser")
+  public void signUpUser(@RequestBody User user) {
+	  System.out.println(user);
+	  userService.signUpUser(user);
+	  
+  }
    
 }
