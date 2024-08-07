@@ -36,7 +36,7 @@ public class DBConfig {
 	 * 자바에서 작성
 	 * 
 	 * prefix = 시작
-	 * spring datasource.hikari 시작하는 모든 정보 가져오기
+	 * spring.datasource.hikari 시작하는 모든 정보 가져오기
 	 * suffix = 끝
 	 *  .html .png 확장자가 무엇인지 작성
 	 * */
