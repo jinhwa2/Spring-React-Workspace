@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.BCUserMapper">
+  <insert id="insertBCUser">
+   INSERT INTO
+   bcuser(id,username,email,password)
+   VALUES(#{id},#{username},#{email},#{password})
+  </insert>
+</mapper>

@@ -8,13 +8,12 @@ import com.kh.mapper.LoginMapper;
 
 @Service
 public class LoginServiceImpl implements LoginService {
-   
+	
 	@Autowired
 	private LoginMapper loginMapper;
 	
 	@Override
 	public NaverUser login(String id, String password) {
-		
 		return loginMapper.login(id, password);
 	}
 }
