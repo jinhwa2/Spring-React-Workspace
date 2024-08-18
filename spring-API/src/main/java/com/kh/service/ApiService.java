@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApiService {
    // @Value 활용해서 application.properties에 작성한 값 가져오기
 	
-   // Value 활용해서 api.baxe-url 과 api.key api.content-type가져오기
+   // Value 활용해서 api.base-url 과 api.key api.content-type가져오기
 	@Value("${api.base-url}")
 	private String baseUrl; 
 	
