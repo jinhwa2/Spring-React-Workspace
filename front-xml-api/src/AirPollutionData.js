@@ -56,7 +56,7 @@ const AirPollutionData = () => {
     
       {/*data들을 가져와서 item 으로 하나씩 꺼내가지고 데이터 보기 */}
       {data.map((item,index) => (
-        <div key={index} className='card'>
+        <div key={index} className='card mb-3'>
           <h2 className='stationName'>{item.stationName}</h2>
          <p><strong>년/월</strong>{item.dataTime}</p>
          <p><strong>SOR 등급:</strong>{item.so2Grade}</p>
