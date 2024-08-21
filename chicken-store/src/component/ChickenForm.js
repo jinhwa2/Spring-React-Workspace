@@ -25,8 +25,9 @@ const ChickenForm = () => {
         ;
     }
   return (
-
+     
     <div className="chickenform-container">
+     
       <label>
         메뉴 이름 :
         <input type="text"  value={chickenName} onChange={(e) => setChickenName(e.target.value)} />
@@ -39,8 +40,7 @@ const ChickenForm = () => {
         가격 :
         <input type="number"  value={price} onChange={(e) => setPrice(e.target.value)}/>
       </label>
-      <button onClick={제출버튼}>등록하기</button>
-      <button>메인으로 돌아가기</button>
+     <button onClick={제출버튼}>등록하기</button>
     </div>
   );
 };
