@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../css/ChickenForm.css';
-
 const ChickenForm = () => {
     const [chickenName, setChickenName] = useState("");
     const [description, setDescription] = useState("");
@@ -25,9 +24,8 @@ const ChickenForm = () => {
         ;
     }
   return (
-     
+
     <div className="chickenform-container">
-     
       <label>
         메뉴 이름 :
         <input type="text"  value={chickenName} onChange={(e) => setChickenName(e.target.value)} />
@@ -40,7 +38,7 @@ const ChickenForm = () => {
         가격 :
         <input type="number"  value={price} onChange={(e) => setPrice(e.target.value)}/>
       </label>
-     <button onClick={제출버튼}>등록하기</button>
+      <button onClick={제출버튼}>등록하기</button>
     </div>
   );
 };

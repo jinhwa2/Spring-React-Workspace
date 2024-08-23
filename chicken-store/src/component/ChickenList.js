@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../css/ChickenList.css';
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 const ChickenList = () => {
     const [chickens, setChickens] = useState([]);
     const navigate = useNavigate();
@@ -25,16 +24,17 @@ useEffect(() => {
             {chickens.map(chicken => (
                 <li key={chicken.id} className='chicken-item'>
                     <div className='chicken-name'>{chicken.chickenName}</div>  
-                    <div className='chicken-description'>{chicken.description}</div>  
-                    <div className='chicken-price'>₩{chicken.price}원</div>
-                   <button className='detail-button'onClick={ () => navigate(`/chicken-detail/${chicken.id}`)}  >상세보기</button>
-                   
-                   
-                   {/* navigate와 Link 사용에 있어 태그를 사용하느냐, 기능을 사용하느냐 큰 차이는 없음
-                   <button className='detail-button'onClick={ () => navigate(`/chicken-detail/${chicken.id}`)}  >상세보기</button>
-                   <button className='detail-button'> <Link to={`/chicken-detail/${chicken.id}}>상세보기</Link></button>
-                   */}
-                   
+                    <div className='chicken-description'>{chicken.description} </div>
+                    <div className='chicken-price'> ₩{chicken.price}원   </div>
+                   <button className='detail-button' onClick={ () => navigate(`/chicken-detail/${chicken.id}`)}>상세보기</button>
+                  
+                  {/*
+                  navigate와 Link 사용에 있어 태그를 사용하느냐, 기능을사용하느냐 차이 사용법만 다를 뿐
+                  큰 차이는 없음
+                   <button className='detail-button' onClick={ () => navigate(`/chicken-detail/${chicken.id}`)}>상세보기</button>
+                   <button className='detail-button'><Link to={`/chicken-detail/${chicken.id}`}> 상세보기</Link></button>
+                 */}
+                
                    </li>
             ))}
             </ul>
