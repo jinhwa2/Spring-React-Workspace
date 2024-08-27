@@ -18,22 +18,35 @@ import com.kh.service.PizzaService;
 @RestController
 @RequestMapping("/api/pizza")
 public class PizzaController {
-	
 	@Autowired
 	private PizzaService pizzaService;
 	
+	
 	@GetMapping
-	public List<Kh_pizza> getAllPizza() {
+	public List<Kh_pizza> getAllPizza(){
 		return pizzaService.getAllPizza();
 	}
-
+	
 	@PostMapping
 	public Kh_pizza savePizza(@RequestBody Kh_pizza p) {
 		return pizzaService.createPizza(p);
 	}
 	
 	@GetMapping("/search")
-	public List<Kh_pizza> searchPizza(@RequestParam("query") String query){
+	public List<Kh_pizza> searchPizza(@RequestParam("query") String query) {
 		return pizzaService.searchPizza(query);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

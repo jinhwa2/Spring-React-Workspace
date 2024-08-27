@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pizza-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.9);
+}
+
+.pizza-container h1{
+  font-size: 36px;
+  /*color: #ff4500;*/
+  background: linear-gradient(to left,#CA3CFF, #F3E37C, #F3D34A, #EEA243, #F3A738, #F1D9A7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;/*기존 글자 색 빼기 탈색*/
+  background-clip: text;
+  color: transparent;
+}
